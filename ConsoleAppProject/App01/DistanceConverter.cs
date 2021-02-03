@@ -14,6 +14,7 @@ namespace ConsoleAppProject.App01
     {
         private double miles;
         private double feet;
+        public const int FEET_IN_MILES = 5280;
 
         /// <summary>
         /// Call other methods
@@ -42,7 +43,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void CalculateFeet()
         {
-            feet = miles * 5280;
+            feet = miles * FEET_IN_MILES;
         }
 
         /// <summary>
