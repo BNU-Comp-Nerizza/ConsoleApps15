@@ -38,15 +38,19 @@ namespace ConsoleAppProject.App01
 
         /// <summary>
         /// Calculate the feet
+        /// Convert miles to feet
         /// </summary>
         private void CalculateFeet()
         {
-
+            feet = miles * 5280;
         }
 
+        /// <summary>
+        /// Print out the calculation
+        /// </summary>
         private void OutputFeet()
         {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
         }
     }
 }
