@@ -47,6 +47,12 @@ namespace ConsoleAppProject.App01
             feet = Convert.ToDouble(value);
         }
 
+        private void CalculateMiles()
+        {
+            miles = FEET_IN_MILES / feet;
+        
+        }
+
         /// <summary>
         /// Calculate the feet
         /// Convert miles to feet
