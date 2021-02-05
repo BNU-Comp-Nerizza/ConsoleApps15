@@ -13,19 +13,36 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
+        public const double METRES_IN_MILES = 1609.34;
         private double miles;
         private double feet;
-        private double meters;
+        private double metres;
         
         /// <summary>
         /// Call other methods
         /// </summary>
-        public void Run()
+        public void MilesToFeet()
         {
             OutputHeading();
             InputMiles();
             CalculateFeet();
             OutputFeet();
+        }
+
+        public void FeetToMiles()
+        {
+            OutputHeading();
+            InputFeet();
+            CalculateMiles();
+            OutputMiles();
+        }
+
+        public void MilesToMetres()
+        {
+            OutputHeading();
+            InputMiles();
+            CalculateMetres();
+            OutputMetres();
         }
 
         /// <summary>
@@ -47,11 +64,19 @@ namespace ConsoleAppProject.App01
             feet = Convert.ToDouble(value);
         }
 
+        private void InputMetres()
+        {
+            Console.WriteLine("Please enter the number of metres > ");
+            string value = Console.ReadLine();
+            metres = Convert.ToDouble(value);
+        }
+
         private void CalculateMiles()
         {
             miles = FEET_IN_MILES / feet;
         
         }
+
 
         /// <summary>
         /// Calculate the feet
@@ -60,6 +85,20 @@ namespace ConsoleAppProject.App01
         private void CalculateFeet()
         {
             feet = miles * FEET_IN_MILES;
+        }
+
+
+        private void CalculateMetres()
+        {
+            metres = miles * METRES_IN_MILES;
+        }
+
+        /// <summary>
+        /// Print out the calculation
+        /// </summary>
+        private void OutputMiles()
+        {
+            Console.WriteLine(feet + " feet is " + miles + " miles!");
         }
 
         /// <summary>
@@ -71,13 +110,21 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
+        /// Print out the calculation
+        /// </summary>
+        private void OutputMetres()
+        {
+            Console.WriteLine(miles + " miles is " + metres + " metres!");
+        }
+
+        /// <summary>
         /// Print out the heading
         /// </summary>
         private void OutputHeading()
         {
             Console.WriteLine();
             Console.WriteLine("\n------------------------------");
-            Console.WriteLine("\tConver Miles to Feet     ");
+            Console.WriteLine("\tDistance Converter     ");
             Console.WriteLine("\tby Nerizza Flores       ");
             Console.WriteLine("------------------------------\n");
             Console.WriteLine();
