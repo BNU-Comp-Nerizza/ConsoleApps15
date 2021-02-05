@@ -15,6 +15,7 @@ namespace ConsoleAppProject.App01
         public const int FEET_IN_MILES = 5280;
         private double miles;
         private double feet;
+        private double meters;
         
         /// <summary>
         /// Call other methods
@@ -33,9 +34,17 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void InputMiles()
         {
-            Console.Write("Please enter the number of miles > ");
+            Console.WriteLine("Please enter the number of miles > ");
             string value = Console.ReadLine();
             miles = Convert.ToDouble(value);
+        }
+
+
+        private void InputFeet()
+        {
+            Console.WriteLine("Please enter the number of feet > ");
+            string value = Console.ReadLine();
+            feet = Convert.ToDouble(value);
         }
 
         /// <summary>
@@ -62,10 +71,13 @@ namespace ConsoleAppProject.App01
         {
             Console.WriteLine();
             Console.WriteLine("\n------------------------------");
-            Console.WriteLine("     Conver Miles to Feet     ");
-            Console.WriteLine("      by Nerizza Flores       ");
+            Console.WriteLine("\tConver Miles to Feet     ");
+            Console.WriteLine("\tby Nerizza Flores       ");
             Console.WriteLine("------------------------------\n");
             Console.WriteLine();
         }
+
+
+
     }
 }
