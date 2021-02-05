@@ -23,7 +23,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void MilesToFeet()
         {
-            OutputHeading();
+            OutputHeading("Converting Miles to Feet");
             InputMiles();
             CalculateFeet();
             OutputFeet();
@@ -31,7 +31,7 @@ namespace ConsoleAppProject.App01
 
         public void FeetToMiles()
         {
-            OutputHeading();
+            OutputHeading("Converting Feet to Miles");
             InputFeet();
             CalculateMiles();
             OutputMiles();
@@ -39,7 +39,7 @@ namespace ConsoleAppProject.App01
 
         public void MilesToMetres()
         {
-            OutputHeading();
+            OutputHeading("Converting to Miles to Metres");
             InputMiles();
             CalculateMetres();
             OutputMetres();
@@ -73,7 +73,7 @@ namespace ConsoleAppProject.App01
 
         private void CalculateMiles()
         {
-            miles = FEET_IN_MILES / feet;
+            miles = feet / FEET_IN_MILES ;
         
         }
 
@@ -120,13 +120,15 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// Print out the heading
         /// </summary>
-        private void OutputHeading()
+        private void OutputHeading(String prompt)
         {
             Console.WriteLine();
             Console.WriteLine("\n------------------------------");
             Console.WriteLine("\tDistance Converter     ");
             Console.WriteLine("\tby Nerizza Flores       ");
             Console.WriteLine("------------------------------\n");
+
+            Console.WriteLine(prompt);
             Console.WriteLine();
         }
 
