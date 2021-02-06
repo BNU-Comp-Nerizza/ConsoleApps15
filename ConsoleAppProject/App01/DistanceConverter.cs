@@ -74,20 +74,19 @@ namespace ConsoleAppProject.App01
             else if (fromUnit == METRES && toUnit == FEET)
             {
                 toDistance = fromDistance / FEET_IN_METRES;
-            }
+            } 
         }
 
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoice(prompt);
-
             string unit = ExecuteChoice(choice);
             Console.WriteLine($"\nYou have chosen {unit}");
             return unit;
         }
 
         private static string ExecuteChoice(string choice)
-        {
+        {            
             if (choice.Equals("1"))
             {
                 return FEET;
@@ -100,7 +99,10 @@ namespace ConsoleAppProject.App01
             {
                 return MILES;
             }
-
+            else
+            {
+                Console.WriteLine("invalid input");
+            }
             return null;
         }
 
@@ -122,6 +124,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine(prompt);
             string value = Console.ReadLine();
             return Convert.ToDouble(value);
+            
         }
 
         private void OutputDistance()
