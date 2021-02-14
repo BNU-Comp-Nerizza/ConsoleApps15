@@ -9,10 +9,10 @@ namespace ConsoleAppProject
         public static void OutputHeading(string title)
         {
             Console.WriteLine();
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("------------------------------------------------------------");
             Console.WriteLine($"\t{title}    ");
             Console.WriteLine("\tby Nerizza Flores       ");
-            Console.WriteLine("------------------------------\n");
+            Console.WriteLine("------------------------------------------------------------\n");
         }
     }
 }

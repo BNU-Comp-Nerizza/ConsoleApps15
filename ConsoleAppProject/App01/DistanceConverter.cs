@@ -41,7 +41,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void ConvertDistance()
         {
-            OutputHeading();
+            ConsoleHelper.OutputHeading("Distance Converter");
 
             fromUnit = SelectUnit ("Please select the from distance unit > ");
             toUnit = SelectUnit ("Please select the to distance unit > ");
@@ -51,18 +51,6 @@ namespace ConsoleAppProject.App01
             fromDistance = InputDistance($"Please enter the number of {fromUnit} > ");
             CalculateDistance();
             OutputDistance();
-        }
-
-        /// <summary>
-        /// Prints out the heading
-        /// </summary>
-        private void OutputHeading()
-        {
-            Console.WriteLine();
-            Console.WriteLine("------------------------------");
-            Console.WriteLine("\tDistance Converter     ");
-            Console.WriteLine("\tby Nerizza Flores       ");
-            Console.WriteLine("------------------------------\n");
         }
 
         /// <summary>
