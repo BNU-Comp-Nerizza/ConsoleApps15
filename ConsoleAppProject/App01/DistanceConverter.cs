@@ -59,6 +59,9 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("------------------------------\n");
         }
 
+        /// <summary>
+        /// Calculate the distance using enum for the units
+        /// </summary>
         private void CalculateDistance()
         {
             if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Feet)
