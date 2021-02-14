@@ -13,16 +13,35 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
-            Console.WriteLine();
-            Console.Beep();
+            Console.WriteLine("\n---------------------------------------------");
+            Console.WriteLine("\t C# Console Applications 2020");
+            Console.WriteLine("\t\t by Nerizza Flores");
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine("");
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.ConvertDistance();
+            Console.WriteLine(" 1. Distance Converter");
+            Console.WriteLine(" 2. BMI Calculator");
+            Console.WriteLine();
+
+            Console.WriteLine(" Select your application > ");
+            string choice = Console.ReadLine();
+
+            switch(choice)
+            {
+                case "1":
+                    DistanceConverter converter = new DistanceConverter();
+                    converter.ConvertDistance();
+                    Console.WriteLine("You have chosen Distance Converter!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid Choice!");
+                    break;
+            }    
         }
     }
 }

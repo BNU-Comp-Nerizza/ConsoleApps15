@@ -53,7 +53,7 @@ namespace ConsoleAppProject.App01
         private void OutputHeading()
         {
             Console.WriteLine();
-            Console.WriteLine("\n------------------------------");
+            Console.WriteLine("------------------------------");
             Console.WriteLine("\tDistance Converter     ");
             Console.WriteLine("\tby Nerizza Flores       ");
             Console.WriteLine("------------------------------\n");
