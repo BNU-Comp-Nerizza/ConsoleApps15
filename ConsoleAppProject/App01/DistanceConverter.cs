@@ -9,21 +9,25 @@ namespace ConsoleAppProject.App01
     /// </summary>
     /// <author>
     /// Nerizza Flores version 0.1
+    /// modified by 14/02/2021
     /// </author>
     public class DistanceConverter
     {
+        // constants for distance coversion
         public const int FEET_IN_MILES = 5280;
         public const double METRES_IN_MILES = 1609.34;
         public const double FEET_IN_METRES = 3.28084;
 
+        //initialised instance variables
         private double fromDistance;
         private double toDistance;
-
         private DistanceUnits fromUnit;
         private DistanceUnits toUnit;
-
         private DistanceUnits unit;
 
+        /// <summary>
+        /// Constructor of the DistanceConverter Class
+        /// </summary>
         public DistanceConverter()
         {
             fromUnit = DistanceUnits.Miles;
@@ -31,7 +35,9 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Call other methods
+        /// Call other methods 
+        /// Prompts the user to input which unit the distance which will be converted from
+        /// and which unit it will be converted to. 
         /// </summary>
         public void ConvertDistance()
         {
@@ -48,7 +54,7 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Print out the heading
+        /// Prints out the heading
         /// </summary>
         private void OutputHeading()
         {
@@ -60,7 +66,8 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// Calculate the distance using enum for the units
+        /// Calculate the distance based on the user choice
+        /// Used enum for the units
         /// </summary>
         private void CalculateDistance()
         {
@@ -90,6 +97,11 @@ namespace ConsoleAppProject.App01
             } 
         }
 
+        /// <summary>
+        /// Prompt the user to select their chosen (choices)unit
+        /// </summary>
+        /// <param name="prompt"> the user choice</param>
+        /// <returns>the unit of the user choice</returns>
         private DistanceUnits SelectUnit(string prompt)
         {
             string choice = DisplayChoice(prompt);
@@ -98,6 +110,11 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
+        /// <summary>
+        /// Execute the choice based on the user input
+        /// </summary>
+        /// <param name="choice"> the user choice(input)</param>
+        /// <returns>The unit based on the user choice </returns>
         private DistanceUnits ExecuteChoice(string choice)
         {
             switch (choice)
@@ -123,6 +140,12 @@ namespace ConsoleAppProject.App01
             return unit;
         }
 
+        /// <summary>
+        /// Display the menu of the distance unit then prompts users
+        /// to select one and return it
+        /// </summary>
+        /// <param name="prompt"> the user choice </param>
+        /// <returns>returns the user choice </returns>
         private static string DisplayChoice(string prompt)
         {
             Console.WriteLine();
@@ -136,6 +159,11 @@ namespace ConsoleAppProject.App01
             return choice;
         }
 
+        /// <summary>
+        /// Prompt the user to enter the distance value
+        /// </summary>
+        /// <param name="prompt">the user input of the distance value</param>
+        /// <returns> string value will be converted and return as a double value </returns>
         private double InputDistance(string prompt)
         {
             Console.WriteLine(prompt);
@@ -143,6 +171,9 @@ namespace ConsoleAppProject.App01
             return Convert.ToDouble(value);
         }
 
+        /// <summary>
+        /// Display the result of the calculation
+        /// </summary>
         private void OutputDistance()
         {
             Console.WriteLine($"\n{fromDistance} {fromUnit} is {toDistance} {toUnit}.\n");
