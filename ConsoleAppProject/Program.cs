@@ -13,6 +13,7 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
+
         public static void Main()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
