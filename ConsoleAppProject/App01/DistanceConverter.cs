@@ -19,10 +19,10 @@ namespace ConsoleAppProject.App01
         public const double FEET_IN_METRES = 3.28084;
 
         //initialised instance variables
-        public double FromDistance { get; set; }
-        public double ToDistance { get; set;  }
-        public DistanceUnits FromUnit { get; set; }
-        public DistanceUnits ToUnit { get; set; }
+        private double fromDistance;
+        private double toDistance;
+        private DistanceUnits fromUnit;
+        private DistanceUnits toUnit;
         private DistanceUnits unit;
 
         /// <summary>
@@ -30,8 +30,8 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public DistanceConverter()
         {
-            FromUnit = DistanceUnits.Miles;
-            ToUnit = DistanceUnits.Feet;
+            fromUnit = DistanceUnits.Miles;
+            toUnit = DistanceUnits.Feet;
         }
 
         /// <summary>
@@ -43,12 +43,12 @@ namespace ConsoleAppProject.App01
         {
             ConsoleHelper.OutputHeading("Distance Converter");
 
-            FromUnit = SelectUnit ("Please select the from distance unit > ");
-            ToUnit = SelectUnit ("Please select the to distance unit > ");
+            fromUnit = SelectUnit ("Please select the from distance unit > ");
+            toUnit = SelectUnit ("Please select the to distance unit > ");
 
-            Console.WriteLine($"Converting {FromUnit} to {ToUnit}\n");
+            Console.WriteLine($"Converting {fromUnit} to {toUnit}\n");
 
-            FromDistance = InputDistance($"Please enter the number of {FromUnit} > ");
+            fromDistance = InputDistance($"Please enter the number of {fromUnit} > ");
             CalculateDistance();
             OutputDistance();
         }
@@ -59,29 +59,29 @@ namespace ConsoleAppProject.App01
         /// </summary>
         public void CalculateDistance()
         {
-            if (FromUnit == DistanceUnits.Miles && ToUnit == DistanceUnits.Feet)
+            if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Feet)
             {
-                ToDistance = FromDistance * FEET_IN_MILES;
+                toDistance = fromDistance * FEET_IN_MILES;
             }
-            else if (FromUnit == DistanceUnits.Feet && ToUnit == DistanceUnits.Miles)
+            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Miles)
             {
-                ToDistance = FromDistance / FEET_IN_MILES;
+                toDistance = fromDistance / FEET_IN_MILES;
             }
-            else if (FromUnit == DistanceUnits.Miles && ToUnit == DistanceUnits.Metres)
+            else if (fromUnit == DistanceUnits.Miles && toUnit == DistanceUnits.Metres)
             {
-                ToDistance = FromDistance * METRES_IN_MILES;
+                toDistance = fromDistance * METRES_IN_MILES;
             }
-            else if (FromUnit == DistanceUnits.Metres && ToUnit == DistanceUnits.Miles)
+            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Miles)
             {
-                ToDistance = FromDistance / METRES_IN_MILES;
+                toDistance = fromDistance / METRES_IN_MILES;
             }
-            else if (FromUnit == DistanceUnits.Feet && ToUnit == DistanceUnits.Metres)
+            else if (fromUnit == DistanceUnits.Feet && toUnit == DistanceUnits.Metres)
             {
-                ToDistance = FromDistance / FEET_IN_METRES;
+                toDistance = fromDistance / FEET_IN_METRES;
             }
-            else if (FromUnit == DistanceUnits.Metres && ToUnit == DistanceUnits.Feet)
+            else if (fromUnit == DistanceUnits.Metres && toUnit == DistanceUnits.Feet)
             {
-                ToDistance = FromDistance * FEET_IN_METRES;
+                toDistance = fromDistance * FEET_IN_METRES;
             } 
         }
 
@@ -164,7 +164,7 @@ namespace ConsoleAppProject.App01
         /// </summary>
         private void OutputDistance()
         {
-            Console.WriteLine($"\n{FromDistance} {FromUnit} is {ToDistance} {ToUnit}.\n");
+            Console.WriteLine($"\n{fromDistance} {fromUnit} is {toDistance} {toUnit}.\n");
         }
     }
 }

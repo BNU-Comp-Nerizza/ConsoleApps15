@@ -11,15 +11,15 @@ namespace ConsoleApp.Tests
         {
             DistanceConverter converter = new DistanceConverter();
 
-            converter.FromUnit = DistanceUnits.Miles;
-            converter.ToUnit = DistanceUnits.Feet;
+            converter.fromUnit = DistanceUnits.Miles;
+            converter.toUnit = DistanceUnits.Feet;
 
-            converter.FromDistance = 1.0;
+            converter.fromDistance = 1.0;
             converter.CalculateDistance();
 
             double exptectedDistance = 5280;
 
-            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+            Assert.AreEqual(exptectedDistance, converter.toDistance);
         }
 
         [TestMethod]
@@ -27,15 +27,15 @@ namespace ConsoleApp.Tests
         {
             DistanceConverter converter = new DistanceConverter();
 
-            converter.FromUnit = DistanceUnits.Feet;
-            converter.ToUnit = DistanceUnits.Miles;
+            converter.fromUnit = DistanceUnits.Feet;
+            converter.toUnit = DistanceUnits.Miles;
 
-            converter.FromDistance = 5280;
+            converter.fromDistance = 5280;
             converter.CalculateDistance();
 
             double exptectedDistance = 1.0;
 
-            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+            Assert.AreEqual(exptectedDistance, converter.toDistance);
         }
     }
 }
