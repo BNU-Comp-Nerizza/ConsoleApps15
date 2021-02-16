@@ -1,4 +1,5 @@
 ﻿using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 using System;
 
 namespace ConsoleAppProject
@@ -31,7 +32,10 @@ namespace ConsoleAppProject
                 case "1":
                     DistanceConverter converter = new DistanceConverter();
                     converter.ConvertDistance();
-                    Console.WriteLine("You have chosen Distance Converter!");
+                    break;
+                case "2":
+                    BMI bmiindex = new BMI();
+                    bmiindex.ConvertBMI();
                     break;
                 default:
                     Console.WriteLine("Invalid Choice!");
