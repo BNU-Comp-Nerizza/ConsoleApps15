@@ -11,15 +11,15 @@ namespace ConsoleApp.Tests
         {
             DistanceConverter converter = new DistanceConverter();
 
-            converter.fromUnit = DistanceUnits.Miles;
-            converter.toUnit = DistanceUnits.Feet;
+            converter.FromUnit = DistanceUnits.Miles;
+            converter.ToUnit = DistanceUnits.Feet;
 
-            converter.fromDistance = 1.0;
+            converter.FromDistance = 1.0;
             converter.CalculateDistance();
 
             double exptectedDistance = 5280;
 
-            Assert.AreEqual(exptectedDistance, converter.toDistance);
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
         }
 
         [TestMethod]
@@ -27,15 +27,80 @@ namespace ConsoleApp.Tests
         {
             DistanceConverter converter = new DistanceConverter();
 
-            converter.fromUnit = DistanceUnits.Feet;
-            converter.toUnit = DistanceUnits.Miles;
+            converter.FromUnit = DistanceUnits.Feet;
+            converter.ToUnit = DistanceUnits.Miles;
 
-            converter.fromDistance = 5280;
+            converter.FromDistance = 5280;
             converter.CalculateDistance();
 
             double exptectedDistance = 1.0;
 
-            Assert.AreEqual(exptectedDistance, converter.toDistance);
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
         }
+
+        [TestMethod]
+        public void TestMetresToFeet()
+        {
+            DistanceConverter converter = new DistanceConverter();
+
+            converter.FromUnit = DistanceUnits.Metres;
+            converter.ToUnit = DistanceUnits.Feet;
+
+            converter.FromDistance = 1.0;
+            converter.CalculateDistance();
+
+            double exptectedDistance = 3.28084;
+
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+        }
+
+        [TestMethod]
+        public void TestFeetToMetres()
+        {
+            DistanceConverter converter = new DistanceConverter();
+
+            converter.FromUnit = DistanceUnits.Feet;
+            converter.ToUnit = DistanceUnits.Metres;
+
+            converter.FromDistance = 3.28084;
+            converter.CalculateDistance();
+
+            double exptectedDistance = 1.0;
+
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+        }
+
+        [TestMethod]
+        public void TestMilesToMetres()
+        {
+            DistanceConverter converter = new DistanceConverter();
+
+            converter.FromUnit = DistanceUnits.Miles;
+            converter.ToUnit = DistanceUnits.Metres;
+
+            converter.FromDistance = 1.0;
+            converter.CalculateDistance();
+
+            double exptectedDistance = 1609.34;
+
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+        }
+
+        [TestMethod]
+        public void TestMetresToMiles()
+        {
+            DistanceConverter converter = new DistanceConverter();
+
+            converter.FromUnit = DistanceUnits.Metres;
+            converter.ToUnit = DistanceUnits.Miles;
+
+            converter.FromDistance = 1609.34;
+            converter.CalculateDistance();
+
+            double exptectedDistance = 1.0;
+
+            Assert.AreEqual(exptectedDistance, converter.ToDistance);
+        }
+
     }
 }
