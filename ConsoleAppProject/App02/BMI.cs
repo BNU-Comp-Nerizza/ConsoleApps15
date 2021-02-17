@@ -28,16 +28,16 @@ namespace ConsoleAppProject.App02
         public const double ObeseClassII = 39.9;
         public const double ObeseClassIII = 40.0;
 
-        public double BMIResult;
+        public double BmiResult;
 
         private BMIUnit unit;
 
-        public void ConvertBMI()
+        public void ConvertBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
             unit = SelectUnit("Please enter your choice ");
-            OutputBMIClass();
-            OutputBAME();
+            OutputBmiCategory();
+            OutputBame();
         }
 
         private BMIUnit SelectUnit(string prompt)
@@ -84,7 +84,7 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        private void OutputBAME()
+        private void OutputBame()
         {
             Console.WriteLine();
             Console.WriteLine("\n\tIf you are Black, Asian or other minority");
@@ -94,31 +94,31 @@ namespace ConsoleAppProject.App02
             Console.WriteLine();
         }
 
-        private void OutputBMIClass()
+        private void OutputBmiCategory()
         {
-            if (BMIResult < Underweight)
+            if (BmiResult < Underweight)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Underweight");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Underweight");
             }
-            else if (BMIResult >= Underweight && BMIResult <= Normal)
+            else if (BmiResult >= Underweight && BmiResult <= Normal)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Normal");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Normal");
             }
-            else if (BMIResult >= Normal && BMIResult <= Overweight)
+            else if (BmiResult >= Normal && BmiResult <= Overweight)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Overweight");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Overweight");
             }
-            else if (BMIResult >= Overweight && BMIResult <= ObeseClassI)
+            else if (BmiResult >= Overweight && BmiResult <= ObeseClassI)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Obese Class I");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class I");
             }
-            else if (BMIResult >= ObeseClassI && BMIResult <= ObeseClassII)
+            else if (BmiResult >= ObeseClassI && BmiResult <= ObeseClassII)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Obese Class II");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class II");
             }
-            else if (BMIResult >= ObeseClassIII)
+            else if (BmiResult >= ObeseClassIII)
             {
-                Console.WriteLine($"Your BMI is {BMIResult}. You are classified as Obese Class III");
+                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class III");
             }
         }
 
@@ -132,14 +132,14 @@ namespace ConsoleAppProject.App02
             Pound = ConsoleHelper.InputNumber("--in Pounds > ");
             Weight = (Pound += Stone * POUNDS_IN_STONES);
             Height = (Inch += Feet * INCH_IN_FEET);
-            BMIResult = (Weight * 703) / (Height * Height); 
+            BmiResult = (Weight * 703) / (Height * Height); 
         }
 
         private void CalculateMetric()
         {
             Weight = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
             Height = ConsoleHelper.InputNumber("\nEnter your height to the nearest meters > ");
-            BMIResult = Weight / (Height * Height);
+            BmiResult = Weight / (Height * Height);
         }
     }
 }

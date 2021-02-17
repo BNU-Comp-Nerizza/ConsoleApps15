@@ -32,7 +32,7 @@ namespace ConsoleAppProject
                     break;
                 case 2:
                     BMI bmiindex = new BMI();
-                    bmiindex.ConvertBMI();
+                    bmiindex.ConvertBmi();
                     break;
                 default:
                     Console.WriteLine("Invalid Choice!");
