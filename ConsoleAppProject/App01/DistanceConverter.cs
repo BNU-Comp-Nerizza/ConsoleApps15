@@ -23,7 +23,6 @@ namespace ConsoleAppProject.App01
         private double toDistance;
         private DistanceUnits fromUnit;
         private DistanceUnits toUnit;
-        private DistanceUnits unit;
 
         /// <summary>
         /// Constructor of the DistanceConverter Class
@@ -48,7 +47,7 @@ namespace ConsoleAppProject.App01
 
             Console.WriteLine($"Converting {fromUnit} to {toUnit}\n");
 
-            fromDistance = InputDistance($"Please enter the number of {fromUnit} > ");
+            fromDistance = ConsoleHelper.InputNumber($"Please enter the number of {fromUnit} > ");
             CalculateDistance();
             OutputDistance();
         }
@@ -92,10 +91,15 @@ namespace ConsoleAppProject.App01
         /// <returns>the unit of the user choice</returns>
         private DistanceUnits SelectUnit(string prompt)
         {
-            string choice = DisplayChoice(prompt);
-            unit = ExecuteChoice(choice);
-            Console.WriteLine($"\nYou have chosen {unit}");
-            return unit;
+            string[] choices =
+            {
+                DistanceUnits.Feet.ToString(),
+                DistanceUnits.Metres.ToString(),
+                DistanceUnits.Miles.ToString()
+            };
+            Console.WriteLine(prompt);
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+            return ExecuteUnit(choiceNo);
         }
 
         /// <summary>
@@ -103,60 +107,20 @@ namespace ConsoleAppProject.App01
         /// </summary>
         /// <param name="choice"> the user choice(input)</param>
         /// <returns>The unit based on the user choice </returns>
-        private DistanceUnits ExecuteChoice(string choice)
+        private static DistanceUnits ExecuteUnit(int choiceNo)
         {
-            switch (choice)
+            switch (choiceNo)
             {
-                case "1":
-                    unit = DistanceUnits.Feet;
-                    break;
-                case "2":
-                    unit = DistanceUnits.Metres;
-                    break;
-                case "3":
-                    unit = DistanceUnits.Miles;
-                    break;
+                case 1:
+                    return DistanceUnits.Feet;
+                case 2:
+                    return DistanceUnits.Metres;
+                case 3:
+                    return DistanceUnits.Miles;
                 default:
-                    unit = DistanceUnits.NoUnit;
-                    break;
+                    Console.WriteLine("\nInvalid Choice.\nYou must select a digit between 1 and 3.\n");
+                    return DistanceUnits.NoUnit;
             }
-
-            if (unit == DistanceUnits.NoUnit)
-            {
-                Console.WriteLine("\nInvalid Choice.\nYou must select a digit between 1 and 3.\n");
-            }
-            return unit;
-        }
-
-        /// <summary>
-        /// Display the menu of the distance unit then prompts users
-        /// to select one and return it
-        /// </summary>
-        /// <param name="prompt"> the user choice </param>
-        /// <returns>returns the user choice </returns>
-        private static string DisplayChoice(string prompt)
-        {
-            Console.WriteLine();
-            Console.WriteLine($" 1. {DistanceUnits.Feet}");
-            Console.WriteLine($" 2. {DistanceUnits.Metres}");
-            Console.WriteLine($" 3. {DistanceUnits.Miles}");
-            Console.WriteLine();
-
-            Console.Write(prompt);
-            string choice = Console.ReadLine();
-            return choice;
-        }
-
-        /// <summary>
-        /// Prompt the user to enter the distance value
-        /// </summary>
-        /// <param name="prompt">the user input of the distance value</param>
-        /// <returns> string value will be converted and return as a double value </returns>
-        private double InputDistance(string prompt)
-        {
-            Console.WriteLine(prompt);
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
         }
 
         /// <summary>

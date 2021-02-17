@@ -49,16 +49,16 @@ namespace ConsoleAppProject.App02
 
         private BMIUnit ExecuteChoice(string choice)
         {
+            Console.WriteLine($"\nYou have chosen {unit}");
             switch (choice)
             {
                 case "1":
                     unit = BMIUnit.Metric;
-                    Console.WriteLine($"\nYou have chosen {unit}");
+
                     CalculateMetric();
                     break;
                 case "2":
                     unit = BMIUnit.Imperial;
-                    Console.WriteLine($"\nYou have chosen {unit}");
                     CalculateImperial();
                     break;
                 default:
@@ -123,30 +123,23 @@ namespace ConsoleAppProject.App02
             }
         }
 
-        private double InputBMI(string prompt)
-        {
-            Console.WriteLine(prompt);
-            string value = Console.ReadLine();
-            return Convert.ToDouble(value);
-        }
-
         private void CalculateImperial()
         {
-            Console.WriteLine("\nEnter your Weight:");
-            Stone = InputBMI("--in Stones > ");
-            Pound = InputBMI("--in Pounds > ");
-            Weight = (Pound += Stone * POUNDS_IN_STONES);
             Console.WriteLine("\nEnter your Height:");
-            Feet = InputBMI("--in Feet > ");
-            Inch = InputBMI("--in Inch > ");
+            Feet = ConsoleHelper.InputNumber("--in Feet > ");
+            Inch = ConsoleHelper.InputNumber("--in Inches > ");
+            Console.WriteLine("\nEnter your Weight:");
+            Stone = ConsoleHelper.InputNumber("--in Stones > ");
+            Pound = ConsoleHelper.InputNumber("--in Pounds > ");
+            Weight = (Pound += Stone * POUNDS_IN_STONES);
             Height = (Inch += Feet * INCH_IN_FEET);
             BMIResult = (Weight * 703) / (Height * Height); 
         }
 
         private void CalculateMetric()
         {
-            Weight = InputBMI("\nEnter your weight to the nearest Kg > ");
-            Height = InputBMI("\nEnter your height to the nearest meters > ");
+            Weight = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
+            Height = ConsoleHelper.InputNumber("\nEnter your height to the nearest meters > ");
             BMIResult = Weight / (Height * Height);
         }
     }
