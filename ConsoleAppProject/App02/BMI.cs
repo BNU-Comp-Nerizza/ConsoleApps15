@@ -54,7 +54,6 @@ namespace ConsoleAppProject.App02
             {
                 case "1":
                     unit = BMIUnit.Metric;
-
                     CalculateMetric();
                     break;
                 case "2":

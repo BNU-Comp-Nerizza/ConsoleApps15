@@ -118,7 +118,6 @@ namespace ConsoleAppProject.App01
                 case 3:
                     return DistanceUnits.Miles;
                 default:
-                    Console.WriteLine("\nInvalid Choice.\nYou must select a digit between 1 and 3.\n");
                     return DistanceUnits.NoUnit;
             }
         }
