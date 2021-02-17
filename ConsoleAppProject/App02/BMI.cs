@@ -87,7 +87,7 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        private string OutputBame()
+        public string OutputBame()
         {
             StringBuilder message = new StringBuilder("\n");
             message.Append("\n\tIf you are Black, Asian or other minority");
@@ -97,7 +97,7 @@ namespace ConsoleAppProject.App02
             return message.ToString();
         }
 
-        private string OutputBmiCategory()
+        public string OutputBmiCategory()
         {
             StringBuilder message = new StringBuilder("\n");
 
@@ -145,14 +145,14 @@ namespace ConsoleAppProject.App02
             Centimetres = (int)ConsoleHelper.InputNumber("\nEnter your height to the nearest centimeters > ");
         }
 
-        private void CalculateImperial()
+        public void CalculateImperial()
         {
             Pound += Stone * POUNDS_IN_STONES;
             Inch += Feet * INCH_IN_FEET;
             BmiIndex = (double)Pound * 703 / (Inch * Inch); 
         }
 
-        private void CalculateMetric()
+        public void CalculateMetric()
         {
             Metres = (double)Centimetres / 100;
             BmiIndex = Kilograms / (Metres * Metres);

@@ -26,12 +26,26 @@ namespace WebApps.Controllers
         [HttpPost]
         public IActionResult BmiCalculator(BMI bmi)
         {
-            return View();
+            if (bmi.Centimetres > 140)
+            {
+                bmi.CalculateMetric();
+            }
+            else if (bmi.Feet > 4 && bmi.Stone > 6)
+            {
+                bmi.CalculateImperial();
+            }
+            else
+            {
+                ViewBag.Error = "You have entered values too small for any adult!";
+                return View();
+            }
+            double bmiIndex = bmi.BmiIndex;
+            return RedirectToAction("HealthMessage", new { bmiIndex });
         }
 
-        public IActionResult HealthMessage()
+        public IActionResult HealthMessage(double bmiIndex)
         {
-            return View();
+            return View(bmiIndex);
         }
 
         public IActionResult Privacy()
