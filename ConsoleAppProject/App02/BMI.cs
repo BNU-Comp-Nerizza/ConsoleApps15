@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ConsoleAppProject.App02
 {
@@ -10,15 +11,15 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMI
     {
-        public double BmiIndex;
+        public double BmiIndex { get; set; }
 
-        public int Stone;
-        public double Pound;
-        public double Feet;
-        public double Inch;
-        public double Kilograms;
+        public int Stone { get; set; }
+        public int Pound { get; set; }
+        public int Feet { get; set; }
+        public int Inch { get; set; }
+        public int Centimetres { get; set; }
+        public double Kilograms { get; set; }
         public double Metres;
-        public double Centimetres; 
 
         public const int POUNDS_IN_STONES = 14;
         public const int INCH_IN_FEET = 12;
@@ -36,8 +37,8 @@ namespace ConsoleAppProject.App02
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
             unit = SelectUnit("Please enter your choice ");
-            OutputBmiCategory();
-            OutputBame();
+            Console.WriteLine(OutputBmiCategory());
+            Console.WriteLine(OutputBame());
         }
 
         private BMIUnit SelectUnit(string prompt)
@@ -86,60 +87,62 @@ namespace ConsoleAppProject.App02
             return choice;
         }
 
-        private void OutputBame()
+        private string OutputBame()
         {
-            Console.WriteLine();
-            Console.WriteLine("\n\tIf you are Black, Asian or other minority");
-            Console.WriteLine("\tethnic groups, you have a higher risk!");
-            Console.WriteLine("\n\tAdults 23.0 or more are at increased risk;");
-            Console.WriteLine("\tAdults 27.5 or more are at high risk.");
-            Console.WriteLine();
+            StringBuilder message = new StringBuilder("\n");
+            message.Append("\n\tIf you are Black, Asian or other minority");
+            message.Append("\tethnic groups, you have a higher risk!");
+            message.Append("\n\tAdults 23.0 or more are at increased risk;");
+            message.Append("\tAdults 27.5 or more are at high risk.");
+            return message.ToString();
         }
 
-        private void OutputBmiCategory()
+        private string OutputBmiCategory()
         {
+            StringBuilder message = new StringBuilder("\n");
 
             if (BmiIndex < Underweight)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Underweight");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Underweight.");
             }
             else if (BmiIndex >= Underweight && BmiIndex <= Normal)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Normal");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Normal");
             }
             else if (BmiIndex >= Normal && BmiIndex <= Overweight)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Overweight");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Overweight");
             }
             else if (BmiIndex >= Overweight && BmiIndex <= ObeseClassI)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class I");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Obese Class I");
             }
             else if (BmiIndex >= ObeseClassI && BmiIndex <= ObeseClassII)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class II");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Obese Class II");
             }
             else if (BmiIndex >= ObeseClassIII)
             {
-                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class III");
+                message.Append($"Your BMI is {BmiIndex:0.00}, " + $"You are classified as Obese Class III");
             }
+            return message.ToString();
         }
 
 
         private void InputImperialValue()
         {
             Console.WriteLine("\nEnter your Height:");
-            Feet = ConsoleHelper.InputNumber("--in Feet > ");
-            Inch = ConsoleHelper.InputNumber("--in Inches > ");
+            Feet = (int)ConsoleHelper.InputNumber("--in Feet > ");
+            Inch = (int)ConsoleHelper.InputNumber("--in Inches > ");
             Console.WriteLine("\nEnter your Weight:");
             Stone = (int)ConsoleHelper.InputNumber("--in Stones > ");
-            Pound = ConsoleHelper.InputNumber("--in Pounds > ");
+            Pound = (int)ConsoleHelper.InputNumber("--in Pounds > ");
         }
 
         private void InputMetricValue()
         {
             Kilograms = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
-            Centimetres = ConsoleHelper.InputNumber("\nEnter your height to the nearest centimeters > ");
+            Centimetres = (int)ConsoleHelper.InputNumber("\nEnter your height to the nearest centimeters > ");
         }
 
         private void CalculateImperial()
