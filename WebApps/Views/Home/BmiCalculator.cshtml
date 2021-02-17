@@ -1,0 +1,50 @@
+﻿@model ConsoleAppProject.App02.BMI
+@{
+    ViewData["Title"] = "BMI Calculator";
+}
+
+<header class="jumbotron">
+    <h1>BMI Calculator</h1>
+    <h2>by Nerizza Flores</h2>
+    <p>
+        This app will use your body weight and height to calculate
+        a BMI Index which can be used to classify your health risks
+    </p>
+</header>
+
+<section>
+    <form method="post">
+        <h2>Height</h2>
+        <p>
+            Please enter your current height in whole numbers
+            using metric or imperial units
+        </p>
+        <p>
+            <input type="number" placeholder="Feet" />
+            <input type="number" placeholder="Inches" />
+        </p>
+        <p>
+            <input type="number" placeholder="Centimetres" />
+        </p>
+
+        <h2>Weight</h2>
+        <p>
+            Please enter your current height in whole numbers
+            using metric or imperial units
+        </p>
+        <p>
+            <input type="number" placeholder="Stones" value=""/>
+            <input type="number" placeholder="Pounds" value=""/>
+        </p>
+        <p>
+            <input type="number" placeholder="Kilograms" value=""/>
+        </p>
+        <p>
+            <button class="btn btn-success" type="submit">Calculate</button>
+        </p>
+
+    </form>
+
+</section>
+
+
