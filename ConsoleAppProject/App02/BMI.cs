@@ -10,13 +10,15 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMI
     {
-        private double Weight;
-        private double Height;
+        public double BmiIndex;
 
-        private double Stone;
-        private double Pound;
-        private double Feet;
-        private double Inch;
+        public int Stone;
+        public double Pound;
+        public double Feet;
+        public double Inch;
+        public double Kilograms;
+        public double Metres;
+        public double Centimetres; 
 
         public const int POUNDS_IN_STONES = 14;
         public const int INCH_IN_FEET = 12;
@@ -27,9 +29,7 @@ namespace ConsoleAppProject.App02
         public const double ObeseClassI = 34.9;
         public const double ObeseClassII = 39.9;
         public const double ObeseClassIII = 40.0;
-
-        public double BmiResult;
-
+               
         private BMIUnit unit;
 
         public void ConvertBmi()
@@ -54,10 +54,12 @@ namespace ConsoleAppProject.App02
             {
                 case "1":
                     unit = BMIUnit.Metric;
+                    InputMetricValue();
                     CalculateMetric();
                     break;
                 case "2":
                     unit = BMIUnit.Imperial;
+                    InputImperialValue();
                     CalculateImperial();
                     break;
                 default:
@@ -96,50 +98,61 @@ namespace ConsoleAppProject.App02
 
         private void OutputBmiCategory()
         {
-            if (BmiResult < Underweight)
+
+            if (BmiIndex < Underweight)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Underweight");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Underweight");
             }
-            else if (BmiResult >= Underweight && BmiResult <= Normal)
+            else if (BmiIndex >= Underweight && BmiIndex <= Normal)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Normal");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Normal");
             }
-            else if (BmiResult >= Normal && BmiResult <= Overweight)
+            else if (BmiIndex >= Normal && BmiIndex <= Overweight)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Overweight");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Overweight");
             }
-            else if (BmiResult >= Overweight && BmiResult <= ObeseClassI)
+            else if (BmiIndex >= Overweight && BmiIndex <= ObeseClassI)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class I");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class I");
             }
-            else if (BmiResult >= ObeseClassI && BmiResult <= ObeseClassII)
+            else if (BmiIndex >= ObeseClassI && BmiIndex <= ObeseClassII)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class II");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class II");
             }
-            else if (BmiResult >= ObeseClassIII)
+            else if (BmiIndex >= ObeseClassIII)
             {
-                Console.WriteLine($"Your BMI is {BmiResult}. You are classified as Obese Class III");
+                Console.WriteLine($"Your BMI is {BmiIndex}. You are classified as Obese Class III");
             }
         }
 
-        private void CalculateImperial()
+
+        private void InputImperialValue()
         {
             Console.WriteLine("\nEnter your Height:");
             Feet = ConsoleHelper.InputNumber("--in Feet > ");
             Inch = ConsoleHelper.InputNumber("--in Inches > ");
             Console.WriteLine("\nEnter your Weight:");
-            Stone = ConsoleHelper.InputNumber("--in Stones > ");
+            Stone = (int)ConsoleHelper.InputNumber("--in Stones > ");
             Pound = ConsoleHelper.InputNumber("--in Pounds > ");
-            Weight = (Pound += Stone * POUNDS_IN_STONES);
-            Height = (Inch += Feet * INCH_IN_FEET);
-            BmiResult = (Weight * 703) / (Height * Height); 
+        }
+
+        private void InputMetricValue()
+        {
+            Kilograms = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
+            Centimetres = ConsoleHelper.InputNumber("\nEnter your height to the nearest centimeters > ");
+        }
+
+        private void CalculateImperial()
+        {
+            Pound += Stone * POUNDS_IN_STONES;
+            Inch += Feet * INCH_IN_FEET;
+            BmiIndex = (double)Pound * 703 / (Inch * Inch); 
         }
 
         private void CalculateMetric()
         {
-            Weight = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
-            Height = ConsoleHelper.InputNumber("\nEnter your height to the nearest meters > ");
-            BmiResult = Weight / (Height * Height);
+            Metres = (double)Centimetres / 100;
+            BmiIndex = Kilograms / (Metres * Metres);
         }
     }
 }
