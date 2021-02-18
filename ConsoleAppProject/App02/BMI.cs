@@ -4,15 +4,19 @@ using System.Text;
 namespace ConsoleAppProject.App02
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app will use the body weight and height to calculate BMI Index
+    /// then classify the health risk.
+    /// User can input Imperial or Metric Unit.
     /// </summary>
     /// <author>
-    /// Student Name version 0.1
+    /// Nerizza Flores version 0.3
     /// </author>
     public class BMI
     {
+        //Bmi Index result
         public double BmiIndex { get; set; }
 
+        //Weight and Height Units
         public int Stone { get; set; }
         public int Pound { get; set; }
         public int Feet { get; set; }
@@ -21,16 +25,23 @@ namespace ConsoleAppProject.App02
         public double Kilograms { get; set; }
         public double Metres;
 
+        //For conversion
         public const int POUNDS_IN_STONES = 14;
         public const int INCH_IN_FEET = 12;
 
+        //WHO Weight Status	
         public const double Underweight = 18.5;
         public const double Normal = 24.9;
         public const double Overweight = 29.9;
         public const double ObeseClassI = 34.9;
         public const double ObeseClassII = 39.9;
         public const double ObeseClassIII = 40.0;
-               
+        
+        /// <summary>
+        /// Ouput Heading and Display menu choices
+        /// User can select their preferred unit between Imperial and Mertic
+        /// Then ouput the bmi category and bame message
+        /// </summary>
         public void ConvertBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
@@ -39,6 +50,10 @@ namespace ConsoleAppProject.App02
             Console.WriteLine(OutputBame());
         }
 
+        /// <summary>
+        /// Allows user to select their prefered unit 
+        /// Imperial or Metric Unit
+        /// </summary>
         private BMIUnit SelectUnit(string prompt)
         {
             string[] choices =
@@ -50,6 +65,11 @@ namespace ConsoleAppProject.App02
             return ExecuteChoice(choiceNo);
         }
 
+        /// <summary>
+        /// Execute other method 
+        /// based on user's chosen unit
+        /// returns the metric unit
+        /// </summary>
         private BMIUnit ExecuteChoice(int choiceNo)
         {
             switch (choiceNo)
@@ -67,6 +87,10 @@ namespace ConsoleAppProject.App02
             }
         }
 
+        /// <summary>
+        /// Prints the Bame message 
+        /// explaining the extra risk
+        /// </summary>
         public string OutputBame()
         {
             StringBuilder message = new StringBuilder("\n");
@@ -77,6 +101,11 @@ namespace ConsoleAppProject.App02
             return message.ToString();
         }
 
+        /// <summary>
+        /// Ouputs the WHO weight status 
+        /// based on user calculated BMI index
+        /// </summary>
+        /// <returns></returns>
         public string OutputBmiCategory()
         {
             StringBuilder message = new StringBuilder("\n");
@@ -108,7 +137,10 @@ namespace ConsoleAppProject.App02
             return message.ToString();
         }
 
-
+        /// <summary>
+        /// Inputs the height and weight of user
+        /// using imperial units
+        /// </summary>
         private void InputImperialValue()
         {
             Console.WriteLine("\nEnter your Height:");
@@ -119,12 +151,20 @@ namespace ConsoleAppProject.App02
             Pound = (int)ConsoleHelper.InputNumber("--in Pounds > ");
         }
 
+        /// <summary>
+        /// Inputs the height and weight of user
+        /// using metric units
+        /// </summary>
         private void InputMetricValue()
         {
             Kilograms = ConsoleHelper.InputNumber("\nEnter your weight to the nearest Kg > ");
             Centimetres = (int)ConsoleHelper.InputNumber("\nEnter your height to the nearest centimeters > ");
         }
 
+        /// <summary>
+        /// Calculates the BMI index of user
+        /// using imperial units
+        /// </summary>
         public void CalculateImperial()
         {
             Pound += Stone * POUNDS_IN_STONES;
@@ -132,6 +172,10 @@ namespace ConsoleAppProject.App02
             BmiIndex = (double)Pound * 703 / (Inch * Inch); 
         }
 
+        /// <summary>
+        /// Inputs the BMI index of user
+        /// using imperial units
+        /// </summary>
         public void CalculateMetric()
         {
             Metres = (double)Centimetres / 100;
