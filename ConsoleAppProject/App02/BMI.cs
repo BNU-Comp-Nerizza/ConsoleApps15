@@ -36,7 +36,7 @@ namespace ConsoleAppProject.App02
         public void ConvertBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
-            unit = SelectUnit("Please enter your choice ");
+            unit = SelectUnit("Please enter your choice >");
             Console.WriteLine(OutputBmiCategory());
             Console.WriteLine(OutputBame());
         }
@@ -50,16 +50,18 @@ namespace ConsoleAppProject.App02
 
         private BMIUnit ExecuteChoice(string choice)
         {
-            Console.WriteLine($"\nYou have chosen {unit}");
+
             switch (choice)
             {
                 case "1":
                     unit = BMIUnit.Metric;
+                    Console.WriteLine($"\nYou have chosen {unit} unit.");
                     InputMetricValue();
                     CalculateMetric();
                     break;
                 case "2":
                     unit = BMIUnit.Imperial;
+                    Console.WriteLine($"\nYou have chosen {unit} unit.");
                     InputImperialValue();
                     CalculateImperial();
                     break;
