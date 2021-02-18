@@ -194,100 +194,190 @@ namespace ConsoleApp.Tests
             Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
         }
 
+        [TestMethod]
+        public void TestMetricObeseILow()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Metric;
+            calculator.Kilograms = 72.7;
+            calculator.Centimetres = 154.9;
+            calculator.CalculateMetric();
+
+            double expectedIndex = 30;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
 
         [TestMethod]
-        public void TestMetricObeseI()
+        public void TestMetricObeseIHigh()
         {
             BMI calculator = new BMI();
 
             calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 79.5;
-            calculator.Centimetres = 170.1;
+            calculator.Centimetres = 152.4;
             calculator.CalculateMetric();
 
-            double expectedIndex = 27.5;
+            double expectedIndex = 34;
 
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
         }
 
         [TestMethod]
-        public void TestImperialObeseI()
+        public void TestImperialObeseILow()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Imperial;
+            calculator.Feet = 5;
+            calculator.Inch = 0;
+            calculator.Pound =155;
+            calculator.CalculateImperial();
+
+            double expectedIndex = 30;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestImperialObeseIHigh()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Imperial;
+            calculator.Feet = 5;
+            calculator.Inch = 0;
+            calculator.Pound = 175;
+            calculator.CalculateImperial();
+
+            double expectedIndex =34;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestMetricObeseIILow()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Metric;
+            calculator.Kilograms = 84.1;
+            calculator.Centimetres = 154.9;
+            calculator.CalculateMetric();
+
+            double expectedIndex = 35;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestMetricObeseIIHigh()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Metric;
+            calculator.Kilograms = 90.9;
+            calculator.Centimetres = 152.4;
+            calculator.CalculateMetric();
+
+            double expectedIndex = 39;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestImperialObeseIILow()
         {
             BMI calculator = new BMI();
 
             calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 1;
-            calculator.Pound = 21;
-            calculator.Stone = 9;
+            calculator.Pound = 185;
             calculator.CalculateImperial();
 
-            double expectedIndex = 27.8;
+            double expectedIndex = 35;
 
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex,0));
         }
 
         [TestMethod]
-        public void TestMetricObeseII()
-        {
-            BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
-            calculator.Kilograms = 79.5;
-            calculator.Centimetres = 170.1;
-            calculator.CalculateMetric();
-
-            double expectedIndex = 27.5;
-
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
-        }
-
-        [TestMethod]
-        public void TestImperialObeseII()
+        public void TestImperialObeseIIHigh()
         {
             BMI calculator = new BMI();
 
             calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
-            calculator.Inch = 1;
-            calculator.Pound = 21;
-            calculator.Stone = 9;
+            calculator.Inch = 0;
+            calculator.Pound = 200;
             calculator.CalculateImperial();
 
-            double expectedIndex = 27.8;
+            double expectedIndex = 39;
 
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
         }
+
         [TestMethod]
-        public void TestMetricObeseIII()
+        public void TestMetricObeseIIILow()
         {
             BMI calculator = new BMI();
 
             calculator.unit = BMIUnit.Metric;
-            calculator.Kilograms = 79.5;
-            calculator.Centimetres = 170.1;
+            calculator.Kilograms = 95.5;
+            calculator.Centimetres = 154.9;
             calculator.CalculateMetric();
 
-            double expectedIndex = 27.5;
+            double expectedIndex = 40;
 
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
         }
 
         [TestMethod]
-        public void TestImperialObeseIII()
+        public void TestMetricObeseIIIHigh()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Metric;
+            calculator.Kilograms = 97.7;
+            calculator.Centimetres = 152.4;
+            calculator.CalculateMetric();
+
+            double expectedIndex = 42;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestImperialObeseIIILow()
         {
             BMI calculator = new BMI();
 
             calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
-            calculator.Inch = 1;
-            calculator.Pound = 21;
-            calculator.Stone = 9;
+            calculator.Inch = 0;
+            calculator.Pound = 205;
             calculator.CalculateImperial();
 
-            double expectedIndex = 27.8;
+            double expectedIndex = 40;
 
-            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 1));
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
+        }
+
+        [TestMethod]
+        public void TestImperialObeseIIIHigh()
+        {
+            BMI calculator = new BMI();
+
+            calculator.unit = BMIUnit.Imperial;
+            calculator.Feet = 5;
+            calculator.Inch = 0;
+            calculator.Pound = 215;
+            calculator.CalculateImperial();
+
+            double expectedIndex = 42;
+
+            Assert.AreEqual(expectedIndex, Math.Round(calculator.BmiIndex, 0));
         }
     }
 }
