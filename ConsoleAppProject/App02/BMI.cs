@@ -31,7 +31,7 @@ namespace ConsoleAppProject.App02
         public const double ObeseClassII = 39.9;
         public const double ObeseClassIII = 40.0;
                
-        private BMIUnit unit;
+        public BMIUnit unit { get; set; }
 
         public void ConvertBmi()
         {
@@ -91,9 +91,9 @@ namespace ConsoleAppProject.App02
         {
             StringBuilder message = new StringBuilder("\n");
             message.Append("\n\tIf you are Black, Asian or other minority");
-            message.Append("\tethnic groups, you have a higher risk!");
+            message.Append("ethnic groups, you have a higher risk!");
             message.Append("\n\tAdults 23.0 or more are at increased risk;");
-            message.Append("\tAdults 27.5 or more are at high risk.");
+            message.Append("Adults 27.5 or more are at high risk.");
             return message.ToString();
         }
 
