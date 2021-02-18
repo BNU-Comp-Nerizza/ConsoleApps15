@@ -17,7 +17,7 @@ namespace ConsoleAppProject.App02
         public int Pound { get; set; }
         public int Feet { get; set; }
         public int Inch { get; set; }
-        public int Centimetres { get; set; }
+        public double Centimetres { get; set; }
         public double Kilograms { get; set; }
         public double Metres;
 
