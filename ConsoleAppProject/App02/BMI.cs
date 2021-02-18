@@ -31,62 +31,40 @@ namespace ConsoleAppProject.App02
         public const double ObeseClassII = 39.9;
         public const double ObeseClassIII = 40.0;
                
-        public BMIUnit unit { get; set; }
-
         public void ConvertBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
-            unit = SelectUnit("Please enter your choice >");
+            SelectUnit("Please enter your choice > ");
             Console.WriteLine(OutputBmiCategory());
             Console.WriteLine(OutputBame());
         }
 
         private BMIUnit SelectUnit(string prompt)
         {
-            string choice = DisplayChoice(prompt);
-            unit = ExecuteChoice(choice);
-            return unit;
+            string[] choices =
+            {
+                BMIUnit.Metric.ToString(),
+                BMIUnit.Imperial.ToString()
+            };
+            int choiceNo = ConsoleHelper.SelectChoice(choices);
+            return ExecuteChoice(choiceNo);
         }
 
-        private BMIUnit ExecuteChoice(string choice)
+        private BMIUnit ExecuteChoice(int choiceNo)
         {
-
-            switch (choice)
+            switch (choiceNo)
             {
-                case "1":
-                    unit = BMIUnit.Metric;
-                    Console.WriteLine($"\nYou have chosen {unit} unit.");
+                case 1:
                     InputMetricValue();
                     CalculateMetric();
-                    break;
-                case "2":
-                    unit = BMIUnit.Imperial;
-                    Console.WriteLine($"\nYou have chosen {unit} unit.");
+                    return BMIUnit.Metric;
+                case 2:
                     InputImperialValue();
                     CalculateImperial();
-                    break;
+                    return BMIUnit.Imperial;
                 default:
-                    unit = BMIUnit.NoUnit;
-                    break;
+                    return BMIUnit.NoUnit;
             }
-
-            if (unit == BMIUnit.NoUnit)
-            {
-                Console.WriteLine("\nInvalid Choice.\nYou must select a digit between 1 and 2.\n");
-            }
-            return unit;
-        }
-
-        private static string DisplayChoice(string prompt)
-        {
-            Console.WriteLine();
-            Console.WriteLine($" 1. {BMIUnit.Metric}");
-            Console.WriteLine($" 2. {BMIUnit.Imperial}");
-            Console.WriteLine();
-
-            Console.Write(prompt);
-            string choice = Console.ReadLine();
-            return choice;
         }
 
         public string OutputBame()

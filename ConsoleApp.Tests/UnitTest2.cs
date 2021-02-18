@@ -11,8 +11,6 @@ namespace ConsoleApp.Tests
         public void TestMetricUnderweightLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 45.5;
             calculator.Centimetres = 193;
             calculator.CalculateMetric();
@@ -26,8 +24,6 @@ namespace ConsoleApp.Tests
         public void TestMetricUnderweightHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 56.8;
             calculator.Centimetres = 177.8;
             calculator.CalculateMetric();
@@ -41,8 +37,6 @@ namespace ConsoleApp.Tests
         public void TestImperialUnderweightLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 6;
             calculator.Inch = 4;
             calculator.Pound = 100;
@@ -57,8 +51,6 @@ namespace ConsoleApp.Tests
         public void TestImperialUnderweightHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 8;
             calculator.Pound = 120;
@@ -73,8 +65,6 @@ namespace ConsoleApp.Tests
         public void TestMetricNormalLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 61.4;
             calculator.Centimetres = 180.3;
             calculator.CalculateMetric();
@@ -88,8 +78,6 @@ namespace ConsoleApp.Tests
         public void TestMetricNormalHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 65.9;
             calculator.Centimetres = 162.5;
             calculator.CalculateMetric();
@@ -103,8 +91,6 @@ namespace ConsoleApp.Tests
         public void TestImperialNormalLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 6;
             calculator.Inch = 3;
             calculator.Pound = 150;
@@ -119,8 +105,6 @@ namespace ConsoleApp.Tests
         public void TestImperialNormaHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound = 125;
@@ -135,8 +119,6 @@ namespace ConsoleApp.Tests
         public void TestMetricOverweightLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 65.9;
             calculator.Centimetres = 160;
             calculator.CalculateMetric();
@@ -150,8 +132,6 @@ namespace ConsoleApp.Tests
         public void TestMetricOverweightHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 79.5;
             calculator.Centimetres = 165.1;
             calculator.CalculateMetric();
@@ -166,8 +146,6 @@ namespace ConsoleApp.Tests
         public void TestImperialOverweightLow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 8;
             calculator.Pound = 170;
@@ -182,8 +160,6 @@ namespace ConsoleApp.Tests
         public void TestImperialOverweightHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 7;
             calculator.Pound = 185;
@@ -198,8 +174,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 72.7;
             calculator.Centimetres = 154.9;
             calculator.CalculateMetric();
@@ -213,8 +187,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 79.5;
             calculator.Centimetres = 152.4;
             calculator.CalculateMetric();
@@ -228,8 +200,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound =155;
@@ -244,8 +214,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound = 175;
@@ -260,8 +228,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseIILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 84.1;
             calculator.Centimetres = 154.9;
             calculator.CalculateMetric();
@@ -275,8 +241,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseIIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 90.9;
             calculator.Centimetres = 152.4;
             calculator.CalculateMetric();
@@ -290,8 +254,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseIILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 1;
             calculator.Pound = 185;
@@ -306,8 +268,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseIIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound = 200;
@@ -322,8 +282,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseIIILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 95.5;
             calculator.Centimetres = 154.9;
             calculator.CalculateMetric();
@@ -337,8 +295,6 @@ namespace ConsoleApp.Tests
         public void TestMetricObeseIIIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Metric;
             calculator.Kilograms = 97.7;
             calculator.Centimetres = 152.4;
             calculator.CalculateMetric();
@@ -352,8 +308,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseIIILow()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound = 205;
@@ -368,8 +322,6 @@ namespace ConsoleApp.Tests
         public void TestImperialObeseIIIHigh()
         {
             BMI calculator = new BMI();
-
-            calculator.unit = BMIUnit.Imperial;
             calculator.Feet = 5;
             calculator.Inch = 0;
             calculator.Pound = 215;
