@@ -6,6 +6,7 @@ namespace ConsoleAppProject
 {
     public static class ConsoleHelper
     {
+
         public static void OutputHeading(string title)
         {
             Console.WriteLine();

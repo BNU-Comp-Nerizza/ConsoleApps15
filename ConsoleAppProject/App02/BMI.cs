@@ -23,6 +23,7 @@ namespace ConsoleAppProject.App02
         public int Inch { get; set; }
         public double Centimetres { get; set; }
         public double Kilograms { get; set; }
+
         public double Metres;
 
         //For conversion
@@ -45,6 +46,9 @@ namespace ConsoleAppProject.App02
         public void ConvertBmi()
         {
             ConsoleHelper.OutputHeading("Body Mass Index Calculator");
+            Console.WriteLine("\nYour BMI, or Body Mass Index, is a measure of your weight compared to your height. \n" +
+                "This app will use the body weight and height to calculate BMI Index\n" +
+                "then classify the health risk based on the WHO weight status\n");
             SelectUnit("Please enter your choice > ");
             Console.WriteLine(OutputBmiCategory());
             Console.WriteLine(OutputBame());
