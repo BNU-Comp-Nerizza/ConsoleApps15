@@ -227,10 +227,10 @@ namespace ConsoleApp.Tests
 
             bool expectedProfile;
             expectedProfile = ((converter.GradeProfile[0] == 3) &&
-                               (converter.GradeProfile[1] == 1) &&
                                (converter.GradeProfile[2] == 1) &&
                                (converter.GradeProfile[3] == 1) &&
-                               (converter.GradeProfile[4] == 4));
+                               (converter.GradeProfile[4] == 1) &&
+                               (converter.GradeProfile[5] == 4));
 
             //Assert
             Assert.IsTrue(expectedProfile);
