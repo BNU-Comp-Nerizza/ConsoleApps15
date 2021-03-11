@@ -161,20 +161,6 @@ namespace ConsoleApp.Tests
         }
 
         [TestMethod]
-        public void TestConverttoGradeValidation()
-        {
-            //Arrange
-            Grades expectedGrade = Grades.N;
-
-            //Act
-            Grades actualGrade = converter.ConvertToGrade(-1);
-
-            //Assert
-
-            Assert.AreEqual(expectedGrade, actualGrade);
-        }
-
-        [TestMethod]
         public void TestCalculateMean()
         {
             //Arrange
@@ -227,10 +213,10 @@ namespace ConsoleApp.Tests
 
             bool expectedProfile;
             expectedProfile = ((converter.GradeProfile[0] == 3) &&
+                               (converter.GradeProfile[1] == 1) &&
                                (converter.GradeProfile[2] == 1) &&
                                (converter.GradeProfile[3] == 1) &&
-                               (converter.GradeProfile[4] == 1) &&
-                               (converter.GradeProfile[5] == 4));
+                               (converter.GradeProfile[4] == 4));
 
             //Assert
             Assert.IsTrue(expectedProfile);

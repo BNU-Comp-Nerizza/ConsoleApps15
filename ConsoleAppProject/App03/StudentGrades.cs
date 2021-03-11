@@ -38,12 +38,19 @@ namespace ConsoleAppProject.App03
             Marks = new int[Students.Length];
         }
 
+        /// <summary>
+        /// Ouput the heading and 
+        /// display the menu
+        /// </summary>
         public void StudentMenu()
         {
             ConsoleHelper.OutputHeading("Student Marks Application");
             SelectMenu("Please enter your choice > ");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void SelectMenu(string prompt)
         {
             string[] choices =
@@ -58,6 +65,10 @@ namespace ConsoleAppProject.App03
             ExecuteMenu(choiceNo);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="choiceNo"></param>
         private void ExecuteMenu(int choiceNo)
         {
             switch (choiceNo)
@@ -69,9 +80,11 @@ namespace ConsoleAppProject.App03
                     OutputMarks();
                     break;
                 case 3:
+                    CalculateStats();
                     OutputStats();
                     break;
                 case 4:
+                    CalculateGradeProfile();
                     OutputGradeProfile();
                     break;
                 case 5:
@@ -90,8 +103,15 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void InputMarks()
         {
-            Console.WriteLine("\n Please enter a mark for each student.");
+            Console.WriteLine("\nPlease enter a mark for each student.\n");
 
+            for (int i=0; i<Students.Length; i++)
+            {
+                Marks[i] = (int)ConsoleHelper.InputNumber($"Enter {Students[i]} marks: ", LowestMark, HighestMark);
+            }
+
+            Console.WriteLine();
+            SelectMenu("\nPlease enter your choice > ");
         }
 
         /// <summary>
@@ -100,7 +120,14 @@ namespace ConsoleAppProject.App03
         /// </summary>
         public void OutputMarks()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("\nOutput mark for each student.\n");
+
+            for (int i = 0; i < Students.Length; i++)
+            {
+                Console.WriteLine($"Student Name: {Students[i]} \nStudent Mark: {Marks[i]}\nStudent Grade: {ConvertToGrade(Marks[i])}\n");
+            }
+
+            SelectMenu("\n\nPlease enter your choice > ");
         }
 
         /// <summary>
@@ -131,7 +158,7 @@ namespace ConsoleAppProject.App03
             }
             else
             {
-                return Grades.N;
+                return Grades.F;
             }
         }
 
@@ -178,13 +205,14 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
-
-            OutputGradeProfile();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OutputGradeProfile()
         {
-            Grades grade = Grades.N;
+            Grades grade = Grades.D;
             Console.WriteLine();
 
             foreach (int count in GradeProfile)
@@ -195,13 +223,18 @@ namespace ConsoleAppProject.App03
             }
 
             Console.WriteLine();
+            SelectMenu("\n\nPlease enter your choice > ");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void OutputStats()
         {
-            CalculateStats();
-
-
+            Console.WriteLine("\nOutput the Statistics of marks\n");
+            Console.WriteLine($"Mean Mark: {Mean}\nMinimum Mark: {Minimum}\nMaximum Mark:{Maximum}");
+            Console.WriteLine();
+            SelectMenu("\n\nPlease enter your choice > ");
         }
     }
 }

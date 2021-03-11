@@ -13,8 +13,6 @@ namespace ConsoleAppProject.App03
     {
         [Description("Fail")]
         F,
-        [Description("No Grade")]
-        N,
         [Description("Third Class")]
         D, 
         [Description("Lower Second")]
