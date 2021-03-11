@@ -21,6 +21,7 @@ namespace ConsoleAppProject.App03
         public double Mean { get; set; }
         public int Minimum { get; set; }
         public int Maximum { get; set; }
+        public string StudentClass { get; set; }
 
         ///<summary>
         ///Class Constructor called when an object
@@ -124,7 +125,8 @@ namespace ConsoleAppProject.App03
 
             for (int i = 0; i < Students.Length; i++)
             {
-                Console.WriteLine($"Student Name: {Students[i]} \nStudent Mark: {Marks[i]}\nStudent Grade: {ConvertToGrade(Marks[i])}\n");
+                Console.WriteLine($"Student Name: {Students[i]} \nStudent Mark: {Marks[i]}\n" +
+                    $"Student Grade: {ConvertToGrade(Marks[i])}\nStudent Class: {StudentClass}\n");
             }
 
             SelectMenu("\n\nPlease enter your choice > ");
@@ -138,22 +140,27 @@ namespace ConsoleAppProject.App03
         {
             if (mark >= LowestMark && mark < LowestGradeD)
             {
+                StudentClass = "Fail";
                 return Grades.F;
             }
             else if (mark >= LowestGradeD && mark < LowestGradeC)
             {
+                StudentClass = "Third Class";
                 return Grades.D;
             }
             else if (mark >= LowestGradeC && mark < LowestGradeB)
             {
+                StudentClass = "Lower Second";
                 return Grades.C;
             }
             else if (mark >= LowestGradeB && mark < LowestGradeA)
             {
+                StudentClass = "Upper Second";
                 return Grades.B;
             }
             else if (mark >= LowestGradeA && mark <= HighestMark)
             {
+                StudentClass = "First Class";
                 return Grades.A;
             }
             else
