@@ -46,13 +46,13 @@ namespace ConsoleAppProject.App03
         public void StudentMenu()
         {
             ConsoleHelper.OutputHeading("Student Marks Application");
-            SelectMenu("Please enter your choice > ");
+            DisplayMenu("Please enter your choice > ");
         }
 
         /// <summary>
         /// 
         /// </summary>
-        private void SelectMenu(string prompt)
+        private void DisplayMenu(string prompt)
         {
             string[] choices =
             {
@@ -93,7 +93,7 @@ namespace ConsoleAppProject.App03
                     break;
                 default:
                     Console.WriteLine("Invalid choice");
-                    SelectMenu("Please enter your choice > ");
+                    DisplayMenu("Please enter your choice > ");
                     break;           
             }
         }
@@ -112,7 +112,7 @@ namespace ConsoleAppProject.App03
             }
 
             Console.WriteLine();
-            SelectMenu("\nPlease enter your choice > ");
+            DisplayMenu("\nPlease enter your choice > ");
         }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace ConsoleAppProject.App03
                     $"Student Grade: {ConvertToGrade(Marks[i])}\nStudent Class: {StudentClass}\n");
             }
 
-            SelectMenu("\n\nPlease enter your choice > ");
+            DisplayMenu("\n\nPlease enter your choice > ");
         }
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace ConsoleAppProject.App03
             }
 
             Console.WriteLine();
-            SelectMenu("\n\nPlease enter your choice > ");
+            DisplayMenu("\n\nPlease enter your choice > ");
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("\nOutput the Statistics of marks\n");
             Console.WriteLine($"Mean Mark: {Mean}\nMinimum Mark: {Minimum}\nMaximum Mark:{Maximum}");
             Console.WriteLine();
-            SelectMenu("\n\nPlease enter your choice > ");
+            DisplayMenu("\n\nPlease enter your choice > ");
         }
     }
 }
