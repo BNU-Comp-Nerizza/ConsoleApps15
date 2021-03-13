@@ -4,6 +4,14 @@ using System.Text;
 
 namespace ConsoleAppProject.App03
 {
+    /// <summary>
+    /// This app will calculate the students marks that will be inputted the user
+    /// converted it to a grade. Output the grade and grade profile of the student
+    /// It can also output the mean, min and max of the grades. 
+    /// </summary>
+    /// <author>
+    /// Nerizza Flores 0.2
+    /// </author>
     public class StudentGrades
     {
         //constants
@@ -34,7 +42,7 @@ namespace ConsoleAppProject.App03
                  "Jaco", "Kaira", "Hazel", "Ivy", "Diana",
                 "Warren", "Albert", "Amie", "Chloe", "Oggy"
             };
-
+            
             GradeProfile = new int[(int)Grades.A + 1];
             Marks = new int[Students.Length];
         }
@@ -50,7 +58,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Allows user to select 
+        /// their choice for the menu
         /// </summary>
         private void DisplayMenu(string prompt)
         {
@@ -60,6 +69,7 @@ namespace ConsoleAppProject.App03
                 "Ouput Marks",
                 "Output Stats",
                 "Ouput Grade Profile",
+                "Edit Name Student",
                 "Quit"
             };
             int choiceNo = ConsoleHelper.SelectChoice(choices);
@@ -67,7 +77,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Execute other method 
+        /// based on user's chosen menu
         /// </summary>
         /// <param name="choiceNo"></param>
         private void ExecuteMenu(int choiceNo)
@@ -89,6 +100,9 @@ namespace ConsoleAppProject.App03
                     OutputGradeProfile();
                     break;
                 case 5:
+                    EditName();
+                    break;
+                case 6:
                     Environment.Exit(0);
                     break;
                 default:
@@ -215,7 +229,7 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Output the grade profile for each grade
         /// </summary>
         public void OutputGradeProfile()
         {
@@ -234,7 +248,8 @@ namespace ConsoleAppProject.App03
         }
 
         /// <summary>
-        /// 
+        /// Output the calculated stats
+        /// for mean, minimum and maximum grade
         /// </summary>
         public void OutputStats()
         {
@@ -242,6 +257,27 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"Mean Mark: {Mean}\nMinimum Mark: {Minimum}\nMaximum Mark:{Maximum}");
             Console.WriteLine();
             DisplayMenu("\n\nPlease enter your choice > ");
+        }
+
+        /// <summary>
+        /// Allows user to edit the 
+        /// name of the student
+        /// </summary>
+        public void EditName()
+        {
+            Console.WriteLine("Enter the name of the student you want to edit: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter the new student name: ");
+            string NewName = Console.ReadLine();
+            for (int i = 0; i < Students.Length; i++)
+            {
+                if (Students[i].Equals(name))
+                {
+                    Students[i] = NewName;
+                }
+            }
+            Console.WriteLine();
+            DisplayMenu("\nPlease enter your choice > ");
         }
     }
 }
