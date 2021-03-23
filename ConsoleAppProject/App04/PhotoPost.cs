@@ -47,8 +47,9 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public override void Display()
         {
-            Console.WriteLine($"\tFilename: [{Filename}]");
-            Console.WriteLine($"\tCaption: [{Caption}]");
+            Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine($"\t\tFilename: [{Filename}]");
+            Console.WriteLine($"\t\tCaption: [{Caption}]");
             base.Display();
         }
     }

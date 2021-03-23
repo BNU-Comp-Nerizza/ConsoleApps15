@@ -32,6 +32,9 @@ namespace ConsoleAppProject.App04
             MessagePost post = new MessagePost("Nerizza", "I love Visual Studio");
             AddMessagePost(post);
 
+            MessagePost post2 = new MessagePost("Boom", "I love Sushi!");
+            AddMessagePost(post2);
+
             PhotoPost photoPost = new PhotoPost("Nerizza", "Photo.jpg", "Visual Studio 2019");
             AddPhotoPost(photoPost);
         }
@@ -82,7 +85,32 @@ namespace ConsoleAppProject.App04
             else
             {
                 Console.WriteLine($"The following Post {id} has been removed!\n");
+
+                if (post is MessagePost mp)
+                {
+                    mp.Display();
+                }
+                else if (post is PhotoPost pp)
+                {
+                    pp.Display();
+                }
+
                 posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        public void DisplayAuthorPost(string author)
+        {
+            Post post = FindAuthor(author);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with Author: {author} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"List of Post by {author}!\n");
                 post.Display();
             }
         }
@@ -92,6 +120,19 @@ namespace ConsoleAppProject.App04
             foreach(Post post in posts)
             {
                 if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
+        public Post FindAuthor(string author)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
                 {
                     return post;
                 }

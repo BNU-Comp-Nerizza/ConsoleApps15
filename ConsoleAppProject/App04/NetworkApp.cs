@@ -82,6 +82,9 @@ namespace ConsoleAppProject.App04
             Console.WriteLine("Please enter your image file name > ");
             string filename = Console.ReadLine();
 
+            Console.WriteLine("Please enter your image caption > ");
+            string caption = Console.ReadLine();
+
             PhotoPost post = new PhotoPost(author, filename, caption);
             news.AddPhotoPost(post);
 
@@ -105,7 +108,10 @@ namespace ConsoleAppProject.App04
 
         private void DisplayByAuthor()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter the name of user you want to display > ");
+            string author = Console.ReadLine();
+            ConsoleHelper.OuputTitle($"Display post by {author}");
+            news.DisplayAuthorPost(author);
         }
 
         private void DisplayByDate()

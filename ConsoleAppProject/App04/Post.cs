@@ -24,6 +24,7 @@ namespace ConsoleAppProject.App04
         public Post(string author)
         {
             instances++;
+            PostId = instances;
             this.Username = author;
             Timestamp = DateTime.Now;
 
@@ -101,9 +102,9 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine();
             Console.WriteLine($"\tPost ID:\t {PostId}");
-            Console.WriteLine($"\tAuthor:\t{Username}");
-            Console.WriteLine($"\tTime Elpased:\t{FormatElapsedTime(Timestamp)}");
-            Console.WriteLine();
+            Console.WriteLine($"\tAuthor:\t {Username}");
+            Console.WriteLine($"\tTime Elpased:\t {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine("----------------------------------------------------");
 
             if (likes > 0)
             {
@@ -124,6 +125,9 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
+        public static int GetNumberOfPosts()
+        {
+            return instances;
+        }
     }
 }
