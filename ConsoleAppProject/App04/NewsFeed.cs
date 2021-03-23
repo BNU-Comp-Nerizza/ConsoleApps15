@@ -70,6 +70,35 @@ namespace ConsoleAppProject.App04
                 Console.WriteLine(); 
             }
         }
+
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"The following Post {id} has been removed!\n");
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach(Post post in posts)
+            {
+                if(post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
     }
 
 }

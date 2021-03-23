@@ -14,8 +14,10 @@ namespace ConsoleAppProject.App04
 
             string[] choices = new string[]
             {
-                "Post Message", "Post Image",
-                "Display All Posts", "Quit"
+                "Post Message", "Post Image", "Remove Post",
+                "Display All Posts", "Display Posts by Author",
+                "Display Posts by Date", "Add Comment",
+                "Like/Unlike Post", "Quit"
             };
 
             bool wantToQuit = false;
@@ -32,9 +34,24 @@ namespace ConsoleAppProject.App04
                         PostImage();
                         break;
                     case 3:
-                        DisplayAll();
+                        RemovePost();
                         break;
                     case 4:
+                        DisplayAll();
+                        break;
+                    case 5:
+                        DisplayByAuthor();
+                        break;
+                    case 6:
+                        DisplayByDate();
+                        break;
+                    case 7:
+                        AddComment();
+                        break;
+                    case 8:
+                        LikePosts();
+                        break;
+                    case 9:
                         wantToQuit = true;
                         break;
                 }
@@ -42,19 +59,75 @@ namespace ConsoleAppProject.App04
             while (!wantToQuit);
         }
 
+        private void PostMessage()
+        {
+            ConsoleHelper.OuputTitle("Posting an Message");
+            string author = InputName();
+
+            Console.WriteLine("Please enter your Message > ");
+            string message = Console.ReadLine();
+
+            MessagePost post = new MessagePost(author, message);
+            news.AddMessagePost(post);
+
+            ConsoleHelper.OuputTitle("You have just posted this message:");
+            post.Display();
+        }
+
+        private void PostImage()
+        {
+            ConsoleHelper.OuputTitle("Posting an Image/Photo");
+            string author = InputName();
+
+            Console.WriteLine("Please enter your image file name > ");
+            string filename = Console.ReadLine();
+
+            PhotoPost post = new PhotoPost(author, filename, caption);
+            news.AddPhotoPost(post);
+
+            ConsoleHelper.OuputTitle("You have just posted this image:");
+            post.Display();
+        }
+
+        private void RemovePost()
+        {
+            ConsoleHelper.OuputTitle($"Removing a Post");
+
+            int id = (int)ConsoleHelper.InputNumber("Please enter the post id > ", 1, Post.GetNumberOfPosts());
+
+            news.RemovePost(id);
+        }
+
         private void DisplayAll()
         {
             news.Display();
         }
 
-        private void PostImage()
+        private void DisplayByAuthor()
         {
             throw new NotImplementedException();
         }
 
-        private void PostMessage()
+        private void DisplayByDate()
         {
             throw new NotImplementedException();
+        }
+
+        private void AddComment()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LikePosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        private string InputName()
+        {
+            Console.Write("Please enter your name > ");
+            string author = Console.ReadLine();
+            return author;
         }
     }
 }
