@@ -41,5 +41,15 @@ namespace ConsoleAppProject.App04
             this.Filename = filename;
             this.Caption = caption;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void Display()
+        {
+            Console.WriteLine($"\tFilename: [{Filename}]");
+            Console.WriteLine($"\tCaption: [{Caption}]");
+            base.Display();
+        }
     }
 }

@@ -92,16 +92,16 @@ namespace ConsoleAppProject.App04
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
-        public void Display()
+        public virtual void Display()
         {
             Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
-            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine($"\tAuthor: {Username}");
+            Console.WriteLine($"\tTime Elpased: {FormatElapsedTime(Timestamp)}");
             Console.WriteLine();
 
             if (likes > 0)
             {
-                Console.WriteLine($"    Likes:  {likes}  people like this.");
+                Console.WriteLine($"\tLikes:  {likes}  people like this.");
             }
             else
             {
@@ -110,11 +110,11 @@ namespace ConsoleAppProject.App04
 
             if (comments.Count == 0)
             {
-                Console.WriteLine("    No comments.");
+                Console.WriteLine("\tNo comments.");
             }
             else
             {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"\t{comments.Count}  comment(s). Click here to view.");
             }
         }
 
