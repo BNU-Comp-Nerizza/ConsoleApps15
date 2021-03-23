@@ -102,16 +102,12 @@ namespace ConsoleAppProject.App04
 
         public void DisplayAuthorPost(string author)
         {
-            Post post = FindAuthor(author);
-
-            if (post == null)
+            foreach (Post post in posts)
             {
-                Console.WriteLine($"\nPost with Author: {author} does not exist!\n");
-            }
-            else
-            {
-                Console.WriteLine($"List of Post by {author}!\n");
-                post.Display();
+                if (post.Username == author)
+                {
+                    post.Display();
+                }
             }
         }
 
@@ -120,19 +116,6 @@ namespace ConsoleAppProject.App04
             foreach(Post post in posts)
             {
                 if(post.PostId == id)
-                {
-                    return post;
-                }
-            }
-
-            return null;
-        }
-
-        public Post FindAuthor(string author)
-        {
-            foreach (Post post in posts)
-            {
-                if (post.Username == author)
                 {
                     return post;
                 }
