@@ -74,6 +74,19 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -84,7 +97,7 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"The following Post {id} has been removed!\n");
+                Console.WriteLine($"\nThe following Post {id} has been removed!\n");
 
                 if (post is MessagePost mp)
                 {
@@ -111,19 +124,6 @@ namespace ConsoleAppProject.App04
             }
         }
 
-        public Post FindPost(int id)
-        {
-            foreach(Post post in posts)
-            {
-                if(post.PostId == id)
-                {
-                    return post;
-                }
-            }
-
-            return null;
-        }
-
         public void AddPostComment(int id, string text)
         {
             Post post = FindPost(id);
@@ -134,8 +134,40 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine($"The following comment have been added to post {id}!\n");
+                Console.WriteLine($"\nThe following comment have been added to post {id}!\n");
                 post.AddComment(text);
+                post.Display();
+            }
+        }
+
+        public void LikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have liked the the following post {id}!\n");
+                post.Like();
+                post.Display();
+            }
+        }
+
+        public void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have unliked the the following post {id}!\n");
+                post.Unlike();
                 post.Display();
             }
         }

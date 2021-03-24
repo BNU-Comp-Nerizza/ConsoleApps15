@@ -18,7 +18,9 @@ namespace ConsoleAppProject
 
         public static void OuputTitle(string titles)
         {
-            Console.WriteLine($"\t{titles}\n");
+            Console.WriteLine("\t------------------------------------");
+            Console.WriteLine($"\t\t|{titles}|");
+            Console.WriteLine("\t------------------------------------\n");
         }
 
         public static double InputNumber(string prompt)

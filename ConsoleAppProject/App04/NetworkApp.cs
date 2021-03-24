@@ -130,7 +130,24 @@ namespace ConsoleAppProject.App04
 
         private void LikePosts()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OuputTitle("Like or Unlike a Post");
+            int id = (int)ConsoleHelper.InputNumber("Please enter the post id > ", 1, Post.GetNumberOfPosts());
+            Console.WriteLine("Do you want to [like] or [unlike] the post? > ");
+            string choices = Console.ReadLine();
+            switch(choices)
+            {
+                case "like":
+                    Console.WriteLine("Like a Post\n");
+                    news.LikePost(id);
+                    break;
+                case "unlike":
+                    Console.WriteLine("Unlike a Post\n");
+                    news.UnlikePost(id);
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
+            }
         }
 
         private string InputName()
