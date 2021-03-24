@@ -108,7 +108,7 @@ namespace ConsoleAppProject.App04
 
             if (likes > 0)
             {
-                Console.WriteLine($"\tLikes:  {likes}  people like this.");
+                Console.WriteLine($"\tLikes:  {likes}  people like this.\n");
             }
             else
             {
@@ -117,11 +117,11 @@ namespace ConsoleAppProject.App04
 
             if (comments.Count == 0)
             {
-                Console.WriteLine("\tNo comments.");
+                Console.WriteLine("\tNo comments.\n");
             }
             else
             {
-                Console.WriteLine($"\t{comments.Count}  comment(s). Click here to view.");
+                Console.WriteLine($"\t{comments.Count}  comment(s). Click here to view.\n");
             }
         }
 
