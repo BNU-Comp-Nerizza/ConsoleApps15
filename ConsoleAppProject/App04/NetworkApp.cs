@@ -110,7 +110,7 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine("Enter the name of user you want to display > ");
             string author = Console.ReadLine();
-            ConsoleHelper.OuputTitle($"\n\t-------Posts by {author}--------\n");
+            ConsoleHelper.OuputTitle($"Posts by {author}");
             news.DisplayAuthorPost(author);
         }
 
