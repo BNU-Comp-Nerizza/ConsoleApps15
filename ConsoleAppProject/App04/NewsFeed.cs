@@ -29,6 +29,9 @@ namespace ConsoleAppProject.App04
         public NewsFeed()
         {
             posts = new List<Post>();
+            //sample post
+            MessagePost post1 = new MessagePost("Nerizza", "Hi!!");
+            AddMessagePost(post1);
         }
 
 

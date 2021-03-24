@@ -122,6 +122,10 @@ namespace ConsoleAppProject.App04
             else
             {
                 Console.WriteLine($"\t{comments.Count}  comment(s). Click here to view.\n");
+                foreach(string comments in comments)
+                {
+                    Console.WriteLine($"\tComment: {comments}\n");
+                }
             }
         }
 
