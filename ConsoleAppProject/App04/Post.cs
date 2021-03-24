@@ -102,7 +102,7 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine();
             Console.WriteLine($"\tPost ID:\t {PostId}");
-            Console.WriteLine($"\tAuthor:\t {Username}");
+            Console.WriteLine($"\tAuthor:\t\t {Username}");
             Console.WriteLine($"\tTime Elpased:\t {FormatElapsedTime(Timestamp)}");
             Console.WriteLine("----------------------------------------------------");
 
