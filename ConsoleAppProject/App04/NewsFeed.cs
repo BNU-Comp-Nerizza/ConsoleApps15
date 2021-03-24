@@ -123,6 +123,22 @@ namespace ConsoleAppProject.App04
 
             return null;
         }
+
+        public void AddPostComment(int id, string text)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"The following comment have been added to post {id}!\n");
+                post.AddComment(text);
+                post.Display();
+            }
+        }
     }
 
 }

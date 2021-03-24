@@ -94,7 +94,7 @@ namespace ConsoleAppProject.App04
 
         private void RemovePost()
         {
-            ConsoleHelper.OuputTitle($"Removing a Post");
+            ConsoleHelper.OuputTitle("Removing a Post");
 
             int id = (int)ConsoleHelper.InputNumber("Please enter the post id > ", 1, Post.GetNumberOfPosts());
 
@@ -121,7 +121,11 @@ namespace ConsoleAppProject.App04
 
         private void AddComment()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OuputTitle("Add a comment to a Post");
+            int id = (int)ConsoleHelper.InputNumber("Please enter the post id > ", 1, Post.GetNumberOfPosts());
+            Console.WriteLine("Enter the comment you want to add > ");
+            string comment = Console.ReadLine();
+            news.AddPostComment(id, comment);
         }
 
         private void LikePosts()
