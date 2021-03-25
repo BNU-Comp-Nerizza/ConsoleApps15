@@ -8,6 +8,9 @@ namespace ConsoleAppProject.App04
     {
         private NewsFeed news = new NewsFeed();
 
+        /// <summary>
+        /// 
+        /// </summary>
         public void DisplayMenu()
         {
             ConsoleHelper.OutputHeading("Nerizza's News Feed");
@@ -59,6 +62,9 @@ namespace ConsoleAppProject.App04
             while (!wantToQuit);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostMessage()
         {
             ConsoleHelper.OuputTitle("Posting an Message");
@@ -74,6 +80,9 @@ namespace ConsoleAppProject.App04
             post.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void PostImage()
         {
             ConsoleHelper.OuputTitle("Posting an Image/Photo");
@@ -92,6 +101,9 @@ namespace ConsoleAppProject.App04
             post.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void RemovePost()
         {
             ConsoleHelper.OuputTitle("Removing a Post");
@@ -101,11 +113,17 @@ namespace ConsoleAppProject.App04
             news.RemovePost(id);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void DisplayByAuthor()
         {
             Console.WriteLine("Enter the name of user you want to display > ");
@@ -114,11 +132,20 @@ namespace ConsoleAppProject.App04
             news.DisplayAuthorPost(author);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void DisplayByDate()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Enter the date of post you want to display > ");
+            string date = Console.ReadLine();
+            ConsoleHelper.OuputTitle($"Posts from the {date}");
+            news.FindDate(date);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void AddComment()
         {
             ConsoleHelper.OuputTitle("Add a comment to a Post");
@@ -128,6 +155,9 @@ namespace ConsoleAppProject.App04
             news.AddPostComment(id, comment);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         private void LikePosts()
         {
             ConsoleHelper.OuputTitle("Like or Unlike a Post");
@@ -150,6 +180,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         private string InputName()
         {
             Console.Write("Please enter your name > ");

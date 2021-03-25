@@ -91,7 +91,6 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
         ///<summary>
         /// Display the details of this post.
         /// 
@@ -104,6 +103,8 @@ namespace ConsoleAppProject.App04
             Console.WriteLine($"\tPost ID:\t {PostId}");
             Console.WriteLine($"\tAuthor:\t\t {Username}");
             Console.WriteLine($"\tTime Elpased:\t {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine($"\tDate Posted:\t {Timestamp.ToLongDateString()}");
+            Console.WriteLine($"\tTime Posted:\t {Timestamp.ToLongTimeString()}");
             Console.WriteLine("----------------------------------------------------");
 
             if (likes > 0)

@@ -69,6 +69,11 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Post FindPost(int id)
         {
             foreach (Post post in posts)
@@ -82,6 +87,10 @@ namespace ConsoleAppProject.App04
             return null;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public void RemovePost(int id)
         {
             Post post = FindPost(id);
@@ -108,6 +117,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="author"></param>
         public void DisplayAuthorPost(string author)
         {
             foreach (Post post in posts)
@@ -119,6 +132,11 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="text"></param>
         public void AddPostComment(int id, string text)
         {
             Post post = FindPost(id);
@@ -135,6 +153,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public void LikePost(int id)
         {
             Post post = FindPost(id);
@@ -151,6 +173,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
         public void UnlikePost(int id)
         {
             Post post = FindPost(id);
@@ -166,6 +192,20 @@ namespace ConsoleAppProject.App04
                 post.Display();
             }
         }
-    }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="date"></param>
+        public void FindDate(string date)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Timestamp.ToLongDateString().Contains(date))
+                {
+                    post.Display();
+                }
+            }
+        }
+    }
 }
