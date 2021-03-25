@@ -37,7 +37,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a text post to the news feed.
-        /// 
         /// @param text  The text post to be added.
         ///</summary>
         public void AddMessagePost(MessagePost message)
@@ -47,7 +46,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a photo post to the news feed.
-        /// 
         /// @param photo  The photo post to be added.
         ///</summary>
         public void AddPhotoPost(PhotoPost photo)
@@ -70,10 +68,10 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Finding the post with the given id
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <returns>returns the matching post
+        /// or null if there is none </returns>
         public Post FindPost(int id)
         {
             foreach (Post post in posts)
@@ -88,7 +86,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Remove Post based on the id post
         /// </summary>
         /// <param name="id"></param>
         public void RemovePost(int id)
@@ -118,9 +116,9 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Find the post based on the
+        /// given author and output all the post
         /// </summary>
-        /// <param name="author"></param>
         public void DisplayAuthorPost(string author)
         {
             foreach (Post post in posts)
@@ -133,10 +131,9 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Add comments based on the post id
+        /// then add text on the post
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="text"></param>
         public void AddPostComment(int id, string text)
         {
             Post post = FindPost(id);
@@ -154,9 +151,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Like post based on the given id post
         /// </summary>
-        /// <param name="id"></param>
         public void LikePost(int id)
         {
             Post post = FindPost(id);
@@ -174,9 +170,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Unlike a post based on the given id post
         /// </summary>
-        /// <param name="id"></param>
         public void UnlikePost(int id)
         {
             Post post = FindPost(id);
@@ -194,9 +189,9 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Ouput the post based on 
+        /// the date of the post
         /// </summary>
-        /// <param name="date"></param>
         public void FindDate(string date)
         {
             foreach (Post post in posts)
