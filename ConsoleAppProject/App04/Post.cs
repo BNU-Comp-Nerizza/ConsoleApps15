@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <author>
+    /// Nerizza Flores 25/03/21
+    /// </author>
     public class Post
     {
         public int PostId { get; } 
@@ -93,7 +99,6 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Display the details of this post.
-        /// 
         /// (Currently: Print to the text terminal. This is simulating display 
         /// in a web browser for now.)
         ///</summary>
@@ -130,6 +135,10 @@ namespace ConsoleAppProject.App04
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public static int GetNumberOfPosts()
         {
             return instances;

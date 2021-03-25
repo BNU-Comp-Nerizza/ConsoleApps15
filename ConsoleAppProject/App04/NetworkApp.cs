@@ -4,12 +4,21 @@ using System.Text;
 
 namespace ConsoleAppProject.App04
 {
+    /// <summary>
+    /// Network App Class contains menu methods 
+    /// for the social network application 
+    /// </summary>
+    /// <author>
+    /// Nerizza Flores 23/03/2021   
+    /// </author>
     public class NetworkApp
     {
         private NewsFeed news = new NewsFeed();
 
         /// <summary>
-        /// 
+        /// Ouput the heading and the menu choices
+        /// execute menu methods based on the 
+        /// user choice
         /// </summary>
         public void DisplayMenu()
         {
@@ -63,7 +72,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Method for posting message in the news feed
+        /// Asking for the author name and their message
         /// </summary>
         private void PostMessage()
         {
@@ -81,7 +91,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Method for posting image in the news feed
+        /// Asking for the author name and their image and caption
         /// </summary>
         private void PostImage()
         {
@@ -102,7 +113,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Method for removing post 
+        /// based on the id post
         /// </summary>
         private void RemovePost()
         {
@@ -114,7 +126,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Ouputing all the messages and images
+        /// on the news feed
         /// </summary>
         private void DisplayAll()
         {
@@ -122,7 +135,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Output the messages and images
+        /// based on the author name
         /// </summary>
         private void DisplayByAuthor()
         {
@@ -133,7 +147,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Ouput the messages and images 
+        /// based on the date it was posted
         /// </summary>
         private void DisplayByDate()
         {
@@ -144,7 +159,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Add comment to a post 
+        /// based on the post id
         /// </summary>
         private void AddComment()
         {
@@ -156,7 +172,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Like or unlike a post 
+        /// based on the post id
         /// </summary>
         private void LikePosts()
         {
@@ -181,7 +198,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Method for inputting 
+        /// author's name
         /// </summary>
         /// <returns></returns>
         private string InputName()
