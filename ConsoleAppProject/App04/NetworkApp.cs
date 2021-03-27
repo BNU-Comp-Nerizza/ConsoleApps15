@@ -141,7 +141,7 @@ namespace ConsoleAppProject.App04
         private void DisplayByAuthor()
         {
             Console.WriteLine("Enter the name of user you want to display > ");
-            string author = InputName();
+            string author = Console.ReadLine();
             ConsoleHelper.OuputTitle($"Posts by {author}");
             news.DisplayAuthorPost(author);
         }
@@ -192,7 +192,8 @@ namespace ConsoleAppProject.App04
                     news.UnlikePost(id);
                     break;
                 default:
-                    Console.WriteLine("Invalid choice");
+                    Console.WriteLine("Invalid choice. Try Again.");
+                    LikePosts();
                     break;
             }
         }

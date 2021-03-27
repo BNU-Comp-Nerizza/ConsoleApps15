@@ -4,7 +4,9 @@ using System.Collections.Generic;
 namespace ConsoleAppProject.App04
 {
     /// <summary>
-    /// 
+    /// The post class is the parent class that contains 
+    /// similar methods that will be used/inherit 
+    /// by the message and photo post (child) class. 
     /// </summary>
     /// <author>
     /// Nerizza Flores 25/03/21
@@ -25,7 +27,7 @@ namespace ConsoleAppProject.App04
         public static int instances = 0;
 
         /// <summary>
-        /// constructor
+        /// constructor of the class post
         /// </summary>
         public Post(string author)
         {
@@ -136,9 +138,8 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Counts and return the actual number of post
         /// </summary>
-        /// <returns></returns>
         public static int GetNumberOfPosts()
         {
             return instances;

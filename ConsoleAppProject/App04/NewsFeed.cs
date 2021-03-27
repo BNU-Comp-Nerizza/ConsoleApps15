@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace ConsoleAppProject.App04
 {
     ///<summary>
@@ -33,7 +32,6 @@ namespace ConsoleAppProject.App04
             MessagePost post1 = new MessagePost("Nerizza", "Hi!!");
             AddMessagePost(post1);
         }
-
 
         ///<summary>
         /// Add a text post to the news feed.
