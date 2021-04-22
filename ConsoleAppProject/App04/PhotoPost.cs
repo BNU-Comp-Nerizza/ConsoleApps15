@@ -43,7 +43,7 @@ namespace ConsoleAppProject.App04
         }
 
         /// <summary>
-        /// 
+        /// Display the text to the post
         /// </summary>
         public override void Display()
         {
